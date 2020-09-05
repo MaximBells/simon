@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Simon's game</title>
+<div class="nav-bar"></div>
+<link rel="stylesheet" type="text/css" href="stl.css">
+</head>
+<body>
+<div class="nav-bar"></div>
+<div id="app">
+  <div class="containerForTable">
+    <h1 class="zagolov">Simon's game</h1>
+
+    <table>
+      <tr>
+        <td class="col1" v-on:click="user(1)" :class="{blueActive: right1}" ></td>
+        <td class="col2" v-on:click="user(2)" :class="{redActive: right2}" ></td>
+      </tr>
+      <tr>
+        <td class="col3" v-on:click="user(3)" :class="{yellowActive: right3}"></td>
+        <td class="col4" v-on:click="user(4)" :class="{greenActive: right4}"></td>
+      </tr>
+    </table>
+  </div>
+  <div class="containterForScore">
+    <h2 class="zagForScore">Score:{{score}}</h2>
+    <div class="hard">
+      <p><input type="radio" name="hard" value="hard" v-model="hard" v-on:click="changeHard" :disabled="begin==true">Сложно</p>
+      <p><input type="radio" name="medium" value="medium" v-model="medium" v-on:click="changeMedium" :disabled="begin==true">Средне</p>
+      <p><input type="radio" name="easy" value="easy" v-model="easy" v-on:click="changeEasy" :disabled="begin==true">Легко</p>
+      <button type="button" name="start" class="start" v-on:click="game" :disabled="nohard">Start</button>
+      <p v-if="nohard==true" class="error">Выберите сложность!</p>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+<script src="scr.js"></script>
+
+</body>
+</html>
